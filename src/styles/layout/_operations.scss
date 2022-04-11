@@ -1,0 +1,150 @@
+@use "../abstract/" as *;
+@use "../base/" as *;
+
+.screen
+{
+    background: $very-dark-desaturated-blue3;
+    margin-top: .9rem;
+    padding: .7rem;
+    border-radius: .3rem;
+
+    body.second &
+    {
+        background: $very-light-gray;
+    }
+
+    body.third &
+    {
+        background: $very-dark-violet2;
+    }
+
+    &__result
+    {
+        color: $white1;
+        font-weight: map-get($weights, bold);
+        text-align: end;
+
+        body.second &
+        {
+            color: $very-dark-grayish-yellow;
+        }
+
+        body.third &
+        {
+            color: $light-yellow;
+        }
+    }
+}
+
+.buttons
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: .7rem;
+    background: $very-dark-desaturated-blue2;
+    border-radius: .4rem;
+    padding: .5rem;
+    font-size: .9rem;
+
+    body.second &
+    {
+        background: $grayish-red;
+    }
+
+    body.third &
+    {
+        background: $very-dark-violet2;
+    }
+
+    &__button 
+    {
+        color: $very-dark-grayish-blue4;
+        font-weight: map-get($weights, medium);
+        background: $light-grayish-orange;
+        border-radius: .2rem;
+        margin: .2rem;
+        text-align: center;
+        padding: .3rem;
+        box-shadow: 0px -5px 0px -1px rgba(0,0,0,0.3) inset;
+        cursor: grab;
+
+        body.second &
+        {
+            color: $very-dark-grayish-yellow;
+        }
+
+        body.third &
+        {
+            color: $light-yellow;
+            background: $very-dark-violet3;
+            box-shadow: 0px -5px 0px -1px $dark-magenta inset;
+
+        }
+
+        &-del
+        {
+            background: $desaturated-dark-blue1;
+            color: $white1;
+            font-size: .5rem;
+            padding: .6rem 0;
+
+            body.second &
+            {
+                color: $white2;
+                background: $dark-moderate-cyan;
+            }
+
+            body.third &
+            {
+                color: $white3;
+                background: rgba($color: $vivid-magenta, $alpha: .4);
+                box-shadow: 0px -5px 0px -1px $vivid-magenta inset;
+            }
+
+        }
+
+        &-reset
+        {
+            grid-column: 1/3;
+            background: $desaturated-dark-blue1;
+            color: $white1;
+            font-size: .5rem;
+            padding: .5rem;
+
+            body.second &
+            {
+                color: $white2;
+                background: $dark-moderate-cyan;
+            }
+
+            body.third &
+            {
+                color: $white3;
+                background: rgba($color: $vivid-magenta, $alpha: .4);
+                box-shadow: 0px -5px 0px -1px $vivid-magenta inset;
+            }
+        }
+
+        &-equal
+        {
+            grid-column: 3/5;
+            background: $red;
+            color: $white1;
+            font-size: .5rem;
+            padding: .5rem;
+
+            body.second &
+            {
+                color: $white2;
+                background: $orange;
+            }
+
+            body.third &
+            {
+                color: $very-dark-blue;
+                background: $pure-cyan;
+                box-shadow: 0px -5px 0px -1px $soft-cyan inset;
+            }
+        }
+    }
+}

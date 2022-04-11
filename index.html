@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./build/images/favicon-32x32.png">
+    <link rel="stylesheet" href="build/style/main.css">
+    <script src="src/scripts/main.js" defer></script>
+    <title>Calculator app</title>
+</head>
+<body>
+
+    <main>
+
+        <div class="container">
+            <div class="theme">
+                <span>
+                    <h4 class="theme__text">calc</h4>
+                </span>
+                
+                <div class="theme__toggle">
+                    <div class="theme__numbers">
+                        <label class="theme__number" for="first">1</label>
+                        <label class="theme__number" for="second">2</label>
+                        <label class="theme__number" for="third">3</label>
+                    </div>
+                    <div class="theme__switch">
+                        <span class="theme__title">
+                            <small>theme</small>
+                        </span>
+
+                        <span class="theme__toggle-switch">
+                            <label class="theme__radio-button theme__radio-button-radio1">
+                                <input type="radio" name="toggle-state" id="first" class="theme__input">
+                                <span class="theme__checkmark"></span>
+                            </label>
+        
+                            <label class="theme__radio-button">
+                                <input type="radio" name="toggle-state" id="second" class="theme__input">
+                                <span class="theme__checkmark"></span>
+                            </label>
+        
+                            <label class="theme__radio-button theme__radio-button-radio3">
+                                <input type="radio" name="toggle-state" id="third" class="theme__input">
+                                <span class="theme__checkmark"></span>
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="screen">
+                <p class="screen__result">399,981</p>
+            </div>
+
+            <div class="buttons">
+                <div class="buttons__button">7</div>
+                <div class="buttons__button">8</div>
+                <div class="buttons__button">9</div>
+                <div class="buttons__button buttons__button-del">DEL</div>
+                <div class="buttons__button">4</div>
+                <div class="buttons__button">5</div>
+                <div class="buttons__button">6</div>
+                <div class="buttons__button">+</div>
+                <div class="buttons__button">1</div>
+                <div class="buttons__button">2</div>
+                <div class="buttons__button">3</div>
+                <div class="buttons__button">-</div>
+                <div class="buttons__button">.</div>
+                <div class="buttons__button">0</div>
+                <div class="buttons__button">/</div>
+                <div class="buttons__button">x</div>
+                <div class="buttons__button buttons__button-reset">RESET</div>
+                <div class="buttons__button buttons__button-equal">=</div>
+            </div>
+
+        </div>
+
+
+
+    </main>
+    
+</body>
+</html>
