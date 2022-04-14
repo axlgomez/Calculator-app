@@ -55,3 +55,117 @@ inputs.forEach(function(input){
 });
 
 //Perform mathematical operations like addition, subtraction, multiplication, and division
+
+class Calculator {
+    constructor(topValue, bottomValue){
+        this.topValue = topValue;
+        this.bottomValue = bottomValue;
+        this.currentValue = 0;
+        this.preValue = "";
+        this.typeOperation = undefined;
+    }
+
+    writeNumber(number){
+        if( number === '.' && this.currentValue.includes('.'))return;
+        if(this.currentValue === 0 || this.currentValue === this.preValue){
+            this.currentValue = number.toString();
+        } else {
+            this.currentValue = this.currentValue.toString() + number.toString();
+        }
+        this.printNumber();
+    }
+
+    writeOperation(typeOperation){
+
+        if (this.currentValue === "") return;
+        if (this.preValue !== '') {
+            this.calculate();
+        }
+        this.typeOperation = typeOperation;
+        this.preValue += this.currentValue;
+        this.currentValue = this.preValue;
+        this.printNumber();
+    }
+
+    deleteLastNumber(){
+        this.currentValue = this.currentValue.toString().slice(0,-1);
+
+        if(this.currentValue === ""){
+            this.currentValue = 0;
+        }
+        this.printNumber();
+    }
+
+    deleteAll(){
+        this.currentValue = 0;
+        this.preValue = '';
+        this.typeOperation = undefined;
+        this.printNumber();
+    }
+
+    calculate(){
+        let computation;
+        let pre = parseFloat(this.preValue);
+        let current = parseFloat(this.currentValue);
+        if(isNaN(pre) || isNaN(current)) return;
+        switch (this.typeOperation) {
+            case '+' :
+                computation = pre + current
+                break;
+            case '-' : 
+                computation = pre - current
+                break;
+            case 'x' : 
+                computation = pre * current
+                break
+            case '/' : 
+                computation = pre / current
+                break
+            default:
+                return;
+        }
+        this.currentValue = computation;
+        this.typeOperation = undefined;
+        this.preValue = '';
+        this.printNumber();
+    }
+
+    printNumber(){
+        this.bottomValue.textContent = this.currentValue;
+        this.topValue.textContent = this.preValue;
+    }
+}
+
+const topValue = document.querySelector("#previus-value");
+const bottomValue = document.querySelector("#current-value");
+const numbers = document.querySelectorAll("[data-number]");
+const operands = document.querySelectorAll("[data-operator]");
+const del = document.querySelector("[data-del]");
+const reset = document.querySelector("[data-reset]");
+const equal = document.querySelector("[data-equal]");
+
+const calculator = new Calculator(topValue, bottomValue)
+
+numbers.forEach(num => {
+    num.addEventListener("click", ()=>{
+        calculator.writeNumber(num.innerText);
+    });
+})
+
+operands.forEach(operation => {
+    operation.addEventListener("click", ()=>{
+        calculator.writeOperation(operation.innerText);
+    });
+})
+
+del.addEventListener("click", ()=>{
+    calculator.deleteLastNumber();
+});
+
+reset.addEventListener("click", ()=>{
+    calculator.deleteAll();
+});
+
+equal.addEventListener("click", ()=>{
+    calculator.calculate();
+});
