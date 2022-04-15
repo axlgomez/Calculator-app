@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="./build/images/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="build/style/main.css">
     <script src="src/scripts/main.js" defer></script>
     <title>Calculator app</title>
@@ -50,30 +51,31 @@
                 </div>
             </div>
 
-            <div class="screen">
-                <p class="screen__result">0</p>
+            <div class="display">
+                <div class="display__pre" id="previus-value"></div>
+                <div class="display__current" id="current-value">0</div>
             </div>
 
-            <div class="buttons">
-                <div class="buttons__button">7</div>
-                <div class="buttons__button">8</div>
-                <div class="buttons__button">9</div>
-                <div class="buttons__button buttons__button-del">DEL</div>
-                <div class="buttons__button">4</div>
-                <div class="buttons__button">5</div>
-                <div class="buttons__button">6</div>
-                <div class="buttons__button">+</div>
-                <div class="buttons__button">1</div>
-                <div class="buttons__button">2</div>
-                <div class="buttons__button">3</div>
-                <div class="buttons__button">-</div>
-                <div class="buttons__button">.</div>
-                <div class="buttons__button">0</div>
-                <div class="buttons__button">/</div>
-                <div class="buttons__button">x</div>
-                <div class="buttons__button buttons__button-reset">RESET</div>
-                <div class="buttons__button buttons__button-equal">=</div>
-            </div>
+            <section class="buttons">
+                <button class="buttons__button" data-number>7</button>
+                <button class="buttons__button" data-number>8</button>
+                <button class="buttons__button" data-number>9</button>
+                <button class="buttons__button buttons__button-del" data-del>DEL</button>
+                <button class="buttons__button" data-number>4</button>
+                <button class="buttons__button" data-number>5</button>
+                <button class="buttons__button" data-number>6</button>
+                <button class="buttons__button" data-operator>+</button>
+                <button class="buttons__button" data-number>1</button>
+                <button class="buttons__button" data-number>2</button>
+                <button class="buttons__button" data-number>3</button>
+                <button class="buttons__button" data-operator="operator">-</button>
+                <button class="buttons__button" data-number>.</button>
+                <button class="buttons__button" data-number>0</button>
+                <button class="buttons__button" data-operator>/</button>
+                <button class="buttons__button" data-operator>x</button>
+                <button class="buttons__button buttons__button-reset" data-reset>RESET</button>
+                <button class="buttons__button buttons__button-equal" data-equal>=</button>
+            </section>
 
         </div>
 
