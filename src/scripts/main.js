@@ -54,6 +54,18 @@ inputs.forEach(function(input){
     }
 });
 
+// add class to buttons to animate
+
+const btns = document.querySelectorAll(".buttons__button");
+btns.forEach(btn => {
+    btn.addEventListener("click", ()=>{
+        btn.classList.add("active");
+        setTimeout(() => {
+            btn.classList.remove("active");
+        }, 400);
+    })
+});
+
 //Perform mathematical operations like addition, subtraction, multiplication, and division
 
 class Calculator {
@@ -78,11 +90,11 @@ class Calculator {
     writeOperation(typeOperation){
 
         if (this.currentValue === "") return;
-        if (this.preValue !== '') {
+        if (this.preValue !== this.currentValue) {
             this.calculate();
         }
         this.typeOperation = typeOperation;
-        this.preValue += this.currentValue;
+        this.preValue = this.currentValue;
         this.currentValue = this.preValue;
         this.printNumber();
     }
@@ -98,7 +110,7 @@ class Calculator {
 
     deleteAll(){
         this.currentValue = 0;
-        this.preValue = '';
+        this.topValue.textContent = "";
         this.typeOperation = undefined;
         this.printNumber();
     }
@@ -125,14 +137,16 @@ class Calculator {
                 return;
         }
         this.currentValue = computation;
+        this.topValue.textContent = `${pre} ${this.typeOperation} ${current} = `;
         this.typeOperation = undefined;
-        this.preValue = '';
         this.printNumber();
     }
 
     printNumber(){
         this.bottomValue.textContent = this.currentValue;
-        this.topValue.textContent = this.preValue;
+        if (this.typeOperation != null) {
+            this.topValue.textContent = `${ this.preValue } ${this.typeOperation}`;
+        }
     }
 }
 
