@@ -23,6 +23,20 @@ body
     width: 12rem; 
     margin: auto;
 
+    @include break-point(movil-L)
+    {
+        width: 14rem;
+    }
+
+    @include break-point(tablet)
+    {
+        width: 16rem;
+    }
+
+    @include break-point(portatil)
+    {
+        width: 19rem;
+    }
 
     &.second 
     {

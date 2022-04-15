@@ -1,38 +1,45 @@
 @use "../abstract/" as *;
 @use "../base/" as *;
 
-.screen
+.display
 {
     background: $very-dark-desaturated-blue3;
-    margin-top: .9rem;
+    margin: .9rem auto 0;
     padding: .6rem;
     border-radius: .3rem;
+    width: 100%;
+    color: $white1;
+    font-weight: map-get($weights, bold);
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-content: center;
+    gap: .3rem;
+    word-break: break-all;
+    overflow-x: hidden;
+
+    &__pre
+    {
+        font-size: .6rem;
+        font-weight: map-get($weights, regular);
+    }
+
+    &__current
+    {
+        font-size: 1.1rem;
+    }
 
     body.second &
     {
         background: $very-light-gray;
+        color: $very-dark-grayish-yellow;
     }
 
     body.third &
     {
         background: $very-dark-violet2;
-    }
-
-    &__result
-    {
-        color: $white1;
-        font-weight: map-get($weights, bold);
-        text-align: end;
-
-        body.second &
-        {
-            color: $very-dark-grayish-yellow;
-        }
-
-        body.third &
-        {
-            color: $light-yellow;
-        }
+        color: $light-yellow;
     }
 }
 
@@ -40,7 +47,7 @@
 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-top: .7rem;
+    margin: .7rem auto 0;
     background: $very-dark-desaturated-blue2;
     border-radius: .4rem;
     padding: .5rem;
@@ -66,7 +73,19 @@
         text-align: center;
         padding: .3rem;
         box-shadow: 0px -5px 0px -1px rgba(0,0,0,0.3) inset;
-        cursor: grab;
+        cursor: pointer;
+
+        &.active
+        {
+            animation: pulse;
+            animation-duration: .1s;
+        }
+
+        @include break-point(portatil)
+        {
+            padding: .2rem;
+            margin: .3rem .4rem;
+        }
 
         body.second &
         {
@@ -87,6 +106,13 @@
             color: $white1;
             font-size: .5rem;
             padding: .6rem 0;
+
+            @include break-point(portatil)
+            {
+                padding: .3rem;
+                margin: .3rem;
+                font-size: .6rem;
+            }
 
             body.second &
             {
@@ -110,6 +136,11 @@
             color: $white1;
             font-size: .5rem;
             padding: .5rem;
+
+            @include break-point(portatil)
+            {
+                font-size: .6rem;
+            }
 
             body.second &
             {
