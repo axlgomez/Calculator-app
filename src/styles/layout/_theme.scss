@@ -22,6 +22,12 @@ body
     background: $very-dark-desaturated-blue1;
     width: 12rem; 
     margin: auto;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 
     @include break-point(movil-L)
     {

@@ -10,6 +10,7 @@
     width: 100%;
     color: $white1;
     font-weight: map-get($weights, bold);
+    font-size: 1.1rem;
     align-items: flex-end;
     display: flex;
     flex-direction: column;
@@ -18,18 +19,7 @@
     gap: .3rem;
     word-break: break-all;
     overflow-x: hidden;
-
-    &__pre
-    {
-        font-size: .6rem;
-        font-weight: map-get($weights, regular);
-    }
-
-    &__current
-    {
-        font-size: 1.1rem;
-    }
-
+    
     body.second &
     {
         background: $very-light-gray;
@@ -75,6 +65,11 @@
         box-shadow: 0px -5px 0px -1px rgba(0,0,0,0.3) inset;
         cursor: pointer;
 
+        &:hover
+        {
+            background: lighten($color: $light-grayish-orange, $amount: 5%);
+        }
+
         &.active
         {
             animation: pulse;
@@ -84,7 +79,7 @@
         @include break-point(portatil)
         {
             padding: .2rem;
-            margin: .3rem .4rem;
+            margin: .3rem;
         }
 
         body.second &
@@ -98,6 +93,10 @@
             background: $very-dark-violet3;
             box-shadow: 0px -5px 0px -1px $dark-magenta inset;
 
+            &:hover
+            {
+                background: lighten($color: $very-dark-violet3, $amount: 5%);
+            }
         }
 
         &-del
@@ -106,6 +105,11 @@
             color: $white1;
             font-size: .5rem;
             padding: .6rem 0;
+
+            &:hover
+            {
+                background: lighten($color: $desaturated-dark-blue1, $amount: 5%);
+            }
 
             @include break-point(portatil)
             {
@@ -118,6 +122,11 @@
             {
                 color: $white2;
                 background: $dark-moderate-cyan;
+
+                &:hover
+                {
+                    background: lighten($color: $dark-moderate-cyan, $amount: 5%);
+                }
             }
 
             body.third &
@@ -137,6 +146,11 @@
             font-size: .5rem;
             padding: .5rem;
 
+            &:hover
+            {
+                background: lighten($color: $desaturated-dark-blue1, $amount: 5%);
+            }
+
             @include break-point(portatil)
             {
                 font-size: .6rem;
@@ -146,6 +160,11 @@
             {
                 color: $white2;
                 background: $dark-moderate-cyan;
+
+                &:hover
+                {
+                    background: lighten($color: $dark-moderate-cyan, $amount: 5%);
+                }
             }
 
             body.third &
@@ -164,10 +183,20 @@
             font-size: .5rem;
             padding: .5rem;
 
+            &:hover
+            {
+                background: lighten($color: $red, $amount: 5%);
+            }
+
             body.second &
             {
                 color: $white2;
                 background: $orange;
+
+                &:hover
+                {
+                    background: lighten($color: $orange, $amount: 5%);
+                }
             }
 
             body.third &
@@ -175,6 +204,11 @@
                 color: $very-dark-blue;
                 background: $pure-cyan;
                 box-shadow: 0px -5px 0px -1px $soft-cyan inset;
+
+                &:hover
+                {
+                    background: darken($color: $pure-cyan, $amount: 5%);
+                }
             }
         }
     }
