@@ -142,7 +142,7 @@ decimal.addEventListener("click", ()=>{
 
 for (let num = 0; num < 10; num++) {
     document.querySelector(numbers[num]).addEventListener("click", ()=>{
-        if (newInput) {
+        if (newInput || display.textContent == 0 && display.textContent !== `0${"."}`) {
             display.textContent = num;
             newInput = false;
         } else if(display.textContent.length < 11) {
